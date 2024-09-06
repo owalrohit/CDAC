@@ -3,9 +3,9 @@ package sept_6;
 import java.util.Scanner;
 
 class Employee{
-	int empId;
-	String empName;
-	long mobNumber;
+	int empId;      //instance variable
+	String empName; //instance variable
+	long mobNumber; //instance variable
 	
 	
 	public void acceptRecords() {
