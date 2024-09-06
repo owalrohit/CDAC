@@ -3,9 +3,9 @@ package sept_6;
 import java.util.Scanner;
 
 class Employee{
-	int empId;      //instance variable
-	String empName; //instance variable
-	long mobNumber; //instance variable
+	private int empId;      //instance variable
+	private String empName; //instance variable
+	private long mobNumber; //instance variable
 	
 	
 	public void acceptRecords() {
@@ -13,6 +13,7 @@ class Employee{
 		Scanner sc = new Scanner(System.in);
 		System.out.print("Enter employee id : ");
 		this.empId = sc.nextInt();
+		sc.nextLine();
 		System.out.print("Enter employee name : ");
 		this.empName=sc.next();
 		System.out.print("Enter employee mobile number : ");
