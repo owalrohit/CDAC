@@ -1,0 +1,190 @@
+1. Create the table SEMP with the following structure:-   
+
+ EMPNO  CHAR(4)    
+ EMPNAME CHAR(20)    
+ BASIC FLOAT    
+ DEPTNO CHAR(2)    
+ DEPTHEAD CHAR(4)   
+
+create table SEMP(
+EMPNO CHAR(4),
+EMPNAME CHAR(20),
+BASIC FLOAT,
+DEPTNO CHAR(2),
+DEPTHEAD CHAR(4)
+);
+
+ 	
+
+2. Create the table SDEPT with the following structure:-    
+    
+   DEPTNO     CHAR(2)    
+   DEPTNAME    CHAR(15)
+
+create table SDEPT(
+DEPTNO CHAR(20),
+DEPTNAME CHAR(15)
+);
+
+
+3. Insert into the SDEPT table the following values:-    
+    
+10, Development    
+20, Training
+
+INSERT INTO SDEPT
+VALUES(10,'Development'),
+(20,'Training');
+
+
+4. Insert into the SEMP table the following values:-    
+    
+0001, SUNIL, 6000, 10    
+0002, HIREN, 8000, 20    
+0003, ALI, 4000, 10, 0001    
+0004, GEORGE, 6000, 0002   
+
+INSERT INTO SEMP(EMPNO,EMPNAME,BASIC,DEPTNO,DEPTHEAD)
+VALUES (0001,'SUNIL',6000,10,null), 
+(0002,'HIREN',8000,20,null),
+(0003,'ALI',4000,10,0001),    
+(0004,'GEORGE',6000,null,0002); 
+
+
+S table 
+create table S(
+`S#` CHAR(3),
+Sname VARCHAR(10),
+Status INT,
+city VARCHAR(20)
+);
+
+P table
+create table P(
+`P#` CHAR(3),
+Pname VARCHAR(20),
+Color VARCHAR(20),
+Weight FLOAT,
+City VARCHAR(20)
+);
+
+J table
+create table J(
+`J#` CHAR(3),
+Pname VARCHAR(20),
+City VARCHAR(20)
+);
+
+SPJ table
+create table SPJ(
+`S#` CHAR(3),
+`P#` CHAR(3),
+`J#` CHAR(3),
+Qty int
+);
+
+
+INSERT INTO S (`S#`, Sname, Status, City)
+VALUES ('S1', 'Supplier A', 10, 'Mumbai'),
+       ('S2', 'Supplier B', 20, 'Pune'),
+       ('S3', 'Supplier C', 30, 'Delhi');
+
+
+
+INSERT INTO P (`P#`, Pname, Color, Weight, City) VALUES
+('P1', 'Part P', 'Red', 15.5, 'Mumbai'),
+('P2', 'Part Q', 'Blue', 10.0, 'Pune'),
+('P3', 'Part R', 'Green', 5.0, 'Delhi');
+
+INSERT INTO j (`J#`, Jname, City) VALUES
+('J1', 'Project 1', 'Mumbai'),
+('J2', 'Project 2', 'Pune'),
+('J3', 'Project 3', 'Delhi');
+
+
+
+INSERT INTO SPJ (`S#`, `P#`, `J#`, Qty) VALUES
+('S1', 'P1', 'J1', 100),
+('S2', 'P2', 'J2', 200),
+('S3', 'P3', 'J3', 150);
+
+
+5. Display all the data from the S table.    
+
+select * from s;
+    
+6. Display only the S# and SNAME fields from the S table.    
+    
+select `s#` , Sname from s;
+
+7. Display the PNAME and COLOR from the P table for the CITY=”Mumbai”.    
+    
+select Pname, Color from P
+where City = 'Mumbai';
+
+8. Display all the Suppliers from Mumbai.   
+ 
+select * from S
+where City = 'Mumbai';
+    
+9. Display all the Suppliers from Pune or Delhi.    
+
+select * from S
+where City = 'Pune' OR City = 'delhi';
+
+    
+10. Display all the Projects in Delhi.   
+
+select * from P
+where city = 'Delhi';
+
+
+
+
+11. Display all the Partnames with the weight between 10 and 15.5 (inclusive of both).    
+    
+select Pname from P
+where Weight >= 10 AND Weight <= 15.5;
+
+SELECT Pname FROM P 
+WHERE Weight BETWEEN 10 AND 15.5;
+
+
+12. Display all the Suppliers with a Status greater than or equal to 20.    
+    
+SELECT * from S
+WHERE Status >= 20;
+
+13. Display all the Suppliers except the Suppliers from Pune.    
+    
+SELECT * FROM S
+WHERE City != 'Pune';
+
+
+
+14. Display only the Cities from where the Suppliers come from.    
+    
+SELECT City
+FROM S;
+
+15. Assuming that the Part Weight is in GRAMS, display the same in 
+MILLIGRAMS and KILOGRAMS.
+
+Select Pname , Weight as "Wt in GRAMS", 
+Weight*1000 as "Wt. in MILLIGRAMS",
+Weight/1000 as "Wt in KILOGRAMS"
+from P;   
+
+
+
+
+
+
+
+
+
+
+
+
+
+

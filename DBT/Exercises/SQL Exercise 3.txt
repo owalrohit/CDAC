@@ -1,0 +1,76 @@
+SQL Exercise 3   
+
+1. Display all the Supplier names with the initial letter capital. 
+
+
+SELECT CONCAT(UPPER(LEFT(sname, 1)), LOWER(SUBSTRING(sname, 2))) 
+FROM S;
+
+
+
+2. Display all the Supplier names in upper case. 
+
+SELECT UPPER(Sname)
+FROM S;
+
+
+3. Display all the Supplier names in lower case.   
+
+SELECT LOWER(Sname)
+FROM S;
+
+
+
+4. Display all the Supplier names padded to 25 characters, with spaces on the left.   
+
+SELECT LPAD(Sname,25,' ')
+FROM S;
+
+
+5. Display all the Supplier names (with ‘ie’ replaced by ‘ro’). HINT: REPLACE.   
+
+SELECT REPLACE(Sname,'ie','ro')
+FROM S;
+
+
+6. Implement the above command such that ‘l’ is replaced with ‘r’ and ‘a’ is replaced with ‘o’.   
+
+SELECT REPLACE(REPLACE(Sname ,'l','r'),'a','o')
+FROM S;
+
+
+7. Display the Supplier names and the lengths of the names.
+
+SELECT Sname , length(Sname) as Length
+FROM S;
+   
+
+
+8. Use the soundex function to search for a supplier by the name of ‘BLOKE’.
+
+SELECT * FROM S
+WHERE SOUNDEX(Sname) = SOUNDEX('BLOKE');   
+
+
+9. Display the Supplier name and the status (as Ten, Twenty, Thirty, etc.). 
+
+SELECT sname,
+       CASE
+           WHEN status < 10 THEN 'Less than Ten'
+           WHEN status >= 10 AND status < 20 THEN 'Ten'
+           WHEN status >= 20 AND status < 30 THEN 'Twenty'
+           WHEN status >= 30 AND status < 40 THEN 'Thirty'
+           ELSE 'Forty or more'
+       END AS Status
+FROM S;
+
+
+  
+10. Display the current day (e.g. Thursday).  
+
+SELECT DAYNAME(CURDATE());
+
+
+
+
+

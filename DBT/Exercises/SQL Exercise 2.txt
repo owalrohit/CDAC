@@ -1,0 +1,44 @@
+SQL Exercise 2   
+1. Display the Supplier table in the descending order of CITY.   
+
+select * from s
+order by City desc;
+
+
+2. Display the Part Table in the ascending order of CITY and within the city in the ascending order of Part names. 
+
+SELECT * FROM P
+ORDER BY City ASC, Pname ASC;
+
+  
+3. Display all the Suppliers with a status between 10 and 20.
+
+SELECT * From s
+Where Status BETWEEN 10 and 20;
+   
+
+
+4. Display all the Parts and their Weight, which are not in the range of 10 and 15.   
+
+select Pname , Weight 
+From P
+Where Weight NOT BETWEEN 10 AND 15;
+
+
+
+5. Display all the Part names starting with the letter ‘S’.  
+
+select * from P
+where Pname like 's%';
+
+ 
+6. Display all the Suppliers, belonging to cities starting with the letter 
+‘P’.   
+
+select * from s
+where City like 'P%';
+
+7. Display all the Projects, with the third letter in JNAME as ‘n’.  
+
+select * from j
+where jname like "__o%"; 
