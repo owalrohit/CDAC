@@ -1,0 +1,148 @@
+Assignment – 9
+
+Querying Multiple Tables at Once.
+
+1) Write a query that lists each order number followed by the name of the customer 
+who made the order. 
+--------------------------------------------------
+select Onum , Cname from orders , customers
+where orders.Cnum = customers.Cnum;
+--------------------------------------------------
+mysql> select Onum , Cname from orders , customers
+    -> where orders.Cnum = customers.Cnum;
++------+----------+
+| Onum | Cname    |
++------+----------+
+| 3001 | Clemens  |
+| 3003 | Hoffman  |
+| 3002 | Pereira  |
+| 3005 | Hoffman  |
+| 3006 | Clemens  |
+| 3009 | Giovanni |
+| 3007 | Liu      |
+| 3008 | Grass    |
+| 3010 | Liu      |
+| 3011 | Grass    |
++------+----------+
+10 rows in set (0.00 sec)
+
+--------------------------------------------------
+
+
+2) Write a query that gives the names of both the salesperson and the customer for 
+each order along with the order number. 
+
+--------------------------------------------------
+select Sname "salesperson Name" , Cname "Customer Name",
+Onum "order number" 
+from orders, customers, salespeople
+where orders.cnum = customers.cnum and
+customers.snum = salespeople.snum;
+--------------------------------------------------
+mysql> select Sname "salesperson Name" , Cname "Customer Name",
+    -> Onum "order number"
+    -> from orders, customers, salespeople
+    -> where orders.cnum = customers.cnum and
+    -> customers.snum = salespeople.snum;
+
+--------------------------------------------------
+
++------------------+---------------+--------------+
+| salesperson Name | Customer Name | order number |
++------------------+---------------+--------------+
+| Rifkin           | Clemens       |         3001 |
+| Peel             | Hoffman       |         3003 |
+| Motika           | Pereira       |         3002 |
+| Serres           | Hoffman       |         3005 |
+| Rifkin           | Clemens       |         3006 |
+| Axelrod          | Giovanni      |         3009 |
+| Serres           | Liu           |         3007 |
+| Peel             | Grass         |         3008 |
+| Serres           | Liu           |         3010 |
+| Peel             | Grass         |         3011 |
++------------------+---------------+--------------+
+10 rows in set (0.01 sec)
+
+--------------------------------------------------
+
+
+3) Write a query that produces all customers serviced by salespeople with a 
+commission above 12%. Output the customer’s name, the salesperson’s name, 
+and the salesperson’s rate of commission. 
+
+--------------------------------------------------
+select Cname "Customer Name", Sname "salesperson Name" ,comm "rate of commision"
+from customers, salespeople
+where customers.snum = salespeople.snum and
+comm > 0.12;
+--------------------------------------------------
+mysql> select Cname "Customer Name", Sname "salesperson Name" ,comm "rate of commision"
+    -> from customers, salespeople
+    -> where customers.snum = salespeople.snum and
+    -> comm > 0.12;
++---------------+------------------+-------------------+
+| Customer Name | salesperson Name | rate of commision |
++---------------+------------------+-------------------+
+| Hoffman       | Serres           |              0.13 |
+| Liu           | Serres           |              0.13 |
+| Clemens       | Rifkin           |              0.15 |
++---------------+------------------+-------------------+
+3 rows in set (0.00 sec)
+
+--------------------------------------------------
+
+
+4) Write a query that calculates the amount of the salesperson’s commission on each 
+order by a customer with a rating above 100.
+--------------------------------------------------
+select onum ,amt*comm commision from orders,customers,salespeople
+where orders.snum = salespeople.snum and
+orders.snum =customers.snum and
+rating > 100;
+--------------------------------------------------
+mysql> select onum ,amt*comm commision from orders,customers,salespeople
+    -> where orders.snum = salespeople.snum and
+    -> orders.snum =customers.snum and
+    -> rating > 100;
++------+-----------+
+| onum | commision |
++------+-----------+
+| 3001 |      2.80 |
+| 3005 |    670.86 |
+| 3005 |    670.86 |
+| 3006 |    164.72 |
+| 3009 |    171.32 |
+| 3007 |      9.85 |
+| 3007 |      9.85 |
+| 3010 |    170.29 |
+| 3010 |    170.29 |
++------+-----------+
+9 rows in set (0.00 sec)
+
+--------------------------------------------------
+--------------------------------------------------
+--------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

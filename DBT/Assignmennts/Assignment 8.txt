@@ -1,0 +1,109 @@
+Assignment 8
+
+Formatting Query output.
+
+
+
+1) Assume each salesperson has a 12% commission. Write a query on the orders table that will produce the order number, the salesperson number, and the amount of the salesperson’s commission for that order. 
+
+--------------------------------------------------
+select ONUM, SNUM, 
+Amt + Amt*0.12 as Amount 
+from orders;
+--------------------------------------------------
+
+2) Write a query on the Customers table that will find the highest rating in each city. 
+Put the output in this form: For the city (city), the highest rating is : (rating). 
+
+-------------------------------------------------
+select city as city,max(rating) as rating  
+from customers
+group by city;
+-------------------------------------------------
+mysql> select city as city,max(rating) as rating
+    -> from customers
+    -> group by city;
++----------+--------+
+| city     | rating |
++----------+--------+
+| London   |    100 |
+| Rome     |    200 |
+| San Jose |    300 |
+| Berlin   |    300 |
++----------+--------+
+4 rows in set (0.00 sec)
+
+-------------------------------------------------
+
+
+
+3) Write a query that lists customers in descending order of rating. Output the rating 
+field first, followed by the customer’s name and number. 
+
+-------------------------------------------------
+
+select rating, cname Customers_name,cnum Customers_number
+from customers
+order by 1;
+-------------------------------------------------
+
+mysql> select rating, cname Customers_name,cnum Customers_number
+    -> from customers
+    -> order by 1;
++--------+----------------+------------------+
+| rating | Customers_name | Customers_number |
++--------+----------------+------------------+
+|    100 | Hoffman        |             2001 |
+|    100 | Grass          |             2006 |
+|    100 | Pereira        |             2007 |
+|    200 | Giovanni       |             2002 |
+|    200 | Hoffman        |             2003 |
+|    300 | Liu            |             2004 |
+|    300 | Clemens        |             2008 |
++--------+----------------+------------------+
+7 rows in set (0.00 sec)
+
+-------------------------------------------------
+
+
+
+
+4) Write a query that totals the orders for each day and places the results in 
+descending order. 
+
+-------------------------------------------------
+select Odate ,count(Onum) order_count
+from orders
+group by Odate
+order by order_count desc;
+-------------------------------------------------
+mysql> select Odate ,count(Onum) order_count
+    -> from orders
+    -> group by Odate
+    -> order by order_count desc;
++------------+-------------+
+| Odate      | order_count |
++------------+-------------+
+| 1990-10-03 |           5 |
+| 1990-10-04 |           2 |
+| 1990-10-06 |           2 |
+| 1990-10-05 |           1 |
++------------+-------------+
+4 rows in set (0.00 sec)
+
+-------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
