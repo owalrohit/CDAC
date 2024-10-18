@@ -1,0 +1,21 @@
+1. DBT Notes
+
+2. Oracle Account -> Create an Account
+
+3. Download and Install MySQL Database Enterprise Edition v9
+https://www.mysql.com/downloads/
+https://edelivery.oracle.com/
+https://www.oracle.com/mysql/technologies/mysql-enterprise-edition-downloads.html
+https://www.oracle.com/mysql/technologies/mysql-enterprise-edition-downloads.html#license-lightbox
+Extract all File and Run Setup
+Password for MySQL 'root' user: 'cdac'
+
+4. Go to www.mysql.com and get information on all the products:-
+MySQL Connectors
+MySQL for Excel
+MySQL Notifier
+MySQL Enterprise High Availability
+MySQL Enterprise Encryption
+MySQL Enterprise Monitor
+MySQL Query Analyzer
+etc.

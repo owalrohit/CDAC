@@ -1,0 +1,160 @@
+mysql> use cdacmumbai;
+Database changed
+mysql> create table tempp(
+    -> fir int,
+    -> sec char(15)
+    -> );
+
+====================================
+
+
+program 1
+------------------------------------
+delimiter //
+create procedure abc()
+begin
+	insert into tempp values(1,'Hello');
+end;//
+delimiter ;
+-------------------------------------
+
+delimiter //
+create procedure abc()
+begin
+	declare x int default 10;
+	insert into tempp values(x,'inside abc');
+end;//
+delimiter ;
+
+-----------------------------------
+LOOPs ----> repetative/iterative processing
+----------------------
+while loop--	
+* check for some condition before entering the loop
+
+while expression DO
+	.................;
+	.................;
+end while;
+------------------------------
+eg. on while loop
+
+delimiter //
+create procedure abc()
+begin 
+	declare x int default 1;
+	while x < 10 do
+		insert into tempp values(x,'in while loop');
+		set x = x+1;
+	end while;
+end;//
+delimeter ;
+
+Note- do not go into infinite loop it will crash the HD
+
+------------------------------------------
+Repeat Loop (Similar to DO WHILE loop): -
+* there's no condition to enter the loop
+* there is a condition to exit the loop
+* it will execute at least once,
+* eg outerjoin
+
+--------------------------------
+REPEAT 
+	............;
+	............;
+UNTIL expression_is_satisfied
+END REPEAT;
+--------------------------------- 
+delimiter //
+create procedure abc()
+begin 
+	declare x int default 1;
+	repeat
+		insert into tempp values(x,'in loop');
+		set x = x+1;
+	until x > 5;
+	end repeat;
+end; //
+delimiter ;	
+
+
+-----------------------------------------------------------------------
+practice 18 oct 24 11.00pm
+
+create procedure abcd()
+begin
+	insert into my_op values(1,"first program");
+end; //
+
+------------------------------------------
+delimiter //
+create procedure abcd2()
+begin
+	declare x int default 10;
+	insert into my_op values(x,"sec progrm");
+end; //
+
+****in this program we declaring variable x and assigning value to it.
+---------------------------------------------------------------------
+
+create procedure abcd3(x char(15),y float, z float)
+begin 
+	declare hra float;
+	set hra = y*z;
+	insert into my_op values(y,x);
+	insert into my_op values(hra,'HRA');
+end; //
+
+ call abcd3("Rohit",5000,23)//
+-------------------------------------------------------------
+create procedure abcd5()
+begin 
+	declare x char(20) default 'rohit';
+	declare y float default 500;
+	declare z float default 20;
+	declare hra1 float;
+	set hra1 = y*z;
+	insert into output values(y,x);
+	insert into output values(hra1,"Rohit_HRA");
+end; //
+
+
+
+
+
+
+create procedure abcd4()  
+Begin 
+	declare x char(15) default 'KING'; 
+	declare y float default 3000; 
+	declare z float default 0.4; 
+	declare hra float; 
+	set hra = y*z; 
+	insert into output values(y,x); 
+	insert into output values(hra,'HRA'); 
+end; //
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

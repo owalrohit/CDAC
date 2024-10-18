@@ -1,0 +1,137 @@
+create table EMP1(
+    -> EMPNO VARCHAR(2),
+    -> ENAME VARCHAR(20),
+    -> SAL FLOAT,
+    -> DEPTNO INT(20),
+    -> JOB VARCHAR(10),
+    -> MGR VARCHAR(10)
+    -> );
+
+
+INSERT INTO EMP1 (EMPNO, ENAME, SAL, DeptNO, JOB, MGR) VALUES (1, 'Arun', 6000, 1, 'M', 4);
+INSERT INTO EMP1 (EMPNO, ENAME, SAL, DeptNO, JOB, MGR) VALUES (2, 'Ali', 7000, 1, 'C', 1);
+INSERT INTO EMP1 (EMPNO, ENAME, SAL, DeptNO, JOB, MGR) VALUES (3, 'Kiran', 3000, 1, 'C', 1);
+INSERT INTO EMP1 (EMPNO, ENAME, SAL, DeptNO, JOB, MGR) VALUES (4, 'Jack', 9000, 2, 'M', NULL);
+INSERT INTO EMP1 (EMPNO, ENAME, SAL, DeptNO, JOB, MGR) VALUES (5, 'Thomas', 8000, 2, 'C', 4);
+
+
+
+mysql> create table DEPT1(
+    -> DEPTNO INT(20),
+    -> DNAME VARCHAR(20),
+    -> LOC VARCHAR(20)
+    -> );
+
+
+
+INSERT INTO DEPT1 (DeptNO, DNAME, LOC) VALUES (1, 'TRN', 'Bby');
+INSERT INTO DEPT1 (DeptNO, DNAME, LOC) VALUES (2, 'EXP', 'Dlh');
+INSERT INTO DEPT1 (DeptNO, DNAME, LOC) VALUES (3, 'MKTG', 'Cal');
+
+
+
+SELECT DEPTNO, SUM(SAL) FROM EMP1
+WHERE SAL > 7000
+GROUP BY DEPTNO;
+
+
+mysql> SELECT DEPTNO, ENAME,SUM(SAL) FROM EMP1
+    -> GROUP BY ENAME,DEPTNO
+    -> ORDER BY 2;
++--------+--------+----------+
+| DEPTNO | ENAME  | SUM(SAL) |
++--------+--------+----------+
+|      1 | Ali    |     7000 |
+|      1 | Arun   |     6000 |
+|      2 | Jack   |     9000 |
+|      1 | Kiran  |     3000 |
+|      2 | Thomas |     8000 |
++--------+--------+----------+
+5 rows in set (0.00 sec)
+
+
+mysql> select count(distinct deptno), count(distinct job)
+    -> from emp1;
++------------------------+---------------------+
+| count(distinct deptno) | count(distinct job) |
++------------------------+---------------------+
+|                      2 |                   2 |
++------------------------+---------------------+
+1 row in set (0.00 sec)
+
+
+
+
+mysql> select deptno, sum(sal) from emp1
+    -> group by deptno
+    -> having sum(sal) > 10000;
++--------+----------+
+| deptno | sum(sal) |
++--------+----------+
+|      1 |    16000 |
+|      2 |    17000 |
++--------+----------+
+2 rows in set (0.00 sec)
+
+
+
+
+mysql> SELECT DEPTNO,JOB, COUNT(*), MIN(SAL),MAX(SAL),SUM(SAL) FROM EMP1
+    -> group by JOB,deptno
+    -> ORDER BY 2;
++--------+------+----------+----------+----------+----------+
+| DEPTNO | JOB  | COUNT(*) | MIN(SAL) | MAX(SAL) | SUM(SAL) |
++--------+------+----------+----------+----------+----------+
+|      1 | C    |        2 |     3000 |     7000 |    10000 |
+|      2 | C    |        1 |     8000 |     8000 |     8000 |
+|      1 | M    |        1 |     6000 |     6000 |     6000 |
+|      2 | M    |        1 |     9000 |     9000 |     9000 |
++--------+------+----------+----------+----------+----------+
+4 rows in set (0.00 sec)
+
+
+
+
+JOINS (VIMP)
+
+SELECT DNAME, ENAME FROM EMP1,DEPT1
+WHERE DEPT1.DEPTNO = EMP1.DEPTNO;
+
++-------+--------+
+| DNAME | ENAME  |
++-------+--------+
+| TRN   | Arun   |
+| TRN   | Ali    |
+| TRN   | Kiran  |
+| EXP   | Jack   |
+| EXP   | Thomas |
++-------+--------+
+5 rows in set (0.00 sec)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

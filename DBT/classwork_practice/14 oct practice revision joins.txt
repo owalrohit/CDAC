@@ -1,0 +1,82 @@
+SELECT DNAME ,ENAME FROM EMP1 LEFT OUTER JOIN DEPT1
+ON( DEPT1.DEPTNO = EMP1.DEPTNO );
+
+
+
+SELECT DNAME ,ENAME FROM EMP1 RIGHT OUTER JOIN DEPT1
+ON( DEPT1.DEPTNO = EMP1.DEPTNO );
+
+
+SELECT DNAME ,ENAME FROM EMP1 LEFT OUTER JOIN DEPT1
+ON( DEPT1.DEPTNO = EMP1.DEPTNO )
+	UNION
+SELECT DNAME ,ENAME FROM EMP1 RIGHT OUTER JOIN DEPT1
+ON( DEPT1.DEPTNO = EMP1.DEPTNO );
+
+
+SELECT DNAME, ENAME FROM EMP1,DEPT1;
+
+
+SELECT a.ENAME,b.ENAME FROM EMP1 b, EMP1 a
+WHERE a.MGR = b.EMPNO;
+
+
+CREATE TABLE DEPTHEAD(
+DEPTNO INT(20),
+DHEAD VARCHAR(20)
+);
+
+INSERT INTO DEPTHEAD(DEPTNO, DHEAD)
+VALUES(1,"Arun"),
+(2,"Jack");
+
+
+select dname, ename from emp1,dept1,depthead
+where  emp1.deptno = dept1.deptno
+and dept1.deptno =  depthead.deptno;
+
+
+Q. display ename who is having salary=min(sal) from emp1
+
+
+select ename ,sal from emp1
+where sal =
+(select min(sal) from emp1);
+
+
+Q. show second max salary from emp
+
+select max(sal) "second_largest" from emp1
+where sal < 
+(select max(sal) from emp1);
+
+
+Q show all the rows having depno of thomas
+
+select * from emp1
+where deptno =
+(select deptno from emp1
+where ename = "Thomas");
+
+Q. show all the rows having same job as kiran
+
+select * from emp1
+where job = 
+(select job from emp1 
+where ename = 'kiran');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
