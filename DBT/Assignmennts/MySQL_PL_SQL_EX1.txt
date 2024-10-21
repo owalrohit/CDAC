@@ -1,0 +1,127 @@
+MySQL    
+Exercise 1    
+
+1. Write a program that computes the perimeter and the area of a rectangle. Define 
+your own values for the length and width. (Assuming that L and W are the length 
+and width of the rectangle, Perimeter = 2*(L+W) and Area = L*W.    
+
+
+delimiter //
+create procedure AreaPeri()
+begin
+	declare L float default 10;
+	declare W float default 20;
+	declare perimeter float;
+	declare area float;
+	set perimeter = 2*(L+W);
+	set area = L*W;
+	insert into output values(perimeter,'Perimeter of rect');
+	insert into output values(area,'Area of rect');
+end; //	
+
+delimiter ;
+
+call AreaPeri()//
+------------------------------------------------------------------------------------------ 
+
+2. Write a program that declares an integer variable called num, assigns a value to it, 
+and computes and inserts into the output table the value of the variable itself, its 
+square, and its cube.     
+
+
+
+delimiter //
+create procedure Assgn1Q21()
+begin
+	declare num int default 5;
+	declare square int;
+	declare cub int; 
+	set square = num*num;
+	set cub = num*num*num;
+	insert into output values(square,'square of 5');
+	insert into output values(cub,'cube of 5');
+end; //
+delimiter ;
+
+3. Convert a temperature in Fahrenheit (F) to its equivalent in Celsius (C) and vice 
+versa. The required formulae are:-  C= (F-32)*5/9    
+F= 9/5*C + 32    
+
+delimiter //
+create procedure temp(temp_in_fehr float , temp_in_cel float)
+begin 
+	declare f_to_c float;
+	declare c_to_f float;
+	set c_to_f = 9/5*temp_in_cel + 32;
+	set f_to_c = (temp_in_fehr-32)*5/9;
+	insert into output values (temp_in_cel,concat(c_to_f,"c to f"));
+	insert into output values (temp_in_fehr,concat(f_to_c,"f to c"));
+end; //	
+	
+
+4. Convert a number of inches into yards, feet, and inches. For example, 124 inches 
+equals 3 yards, 1 foot, and 4 inches.    
+
+
+delimiter //
+create procedure inch(inches float)
+begin
+declare yd int;
+declare ft int;
+declare ich int;
+
+set yd = inches/36;
+set ft = (inches mod 36) div 12;
+set ich = (inches mod 36) mod 12;
+insert into output values(inches,concat('equals ',yd,' yards ',ft,' feets ',ich,' inches.'));
+end; //
+
+
+5. Write a program that enables a user to input an integer. The program should then 
+state whether the integer is evenly divisible by 5.    
+
+delimiter //
+create procedure DivBy5(x int)
+begin
+	declare isDivisible Boolean;
+	set isDivisible = (x mod 5 = 0);
+	if isDivisible then
+		insert into output values(x,'is divisible by 5');
+	end if;
+end; //
+
+
+
+
+6. Your block should read in two real numbers and tell whether the product of the two 
+numbers is equal to or greater than 100.     
+
+
+delimiter //
+create procedure greater102(x int, y int)
+begin 
+	declare prod int;
+	set prod = x * y;
+	if (prod > 100) then
+		insert into output values(prod,'product is greater than 100');
+	else 
+		insert into output values(prod,'product is equal to 100');
+	end if;
+end; //
+
+delimiter ;
+call greater102(10,10);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
