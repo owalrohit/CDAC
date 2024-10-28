@@ -1,0 +1,21 @@
+
+.he{
+    background:lightblue;
+}
+
+#i1{
+    background: lightsteelblue;
+    text-align: center;
+}
+#na{
+    font-size: 20px;
+}
+.a{
+   
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 70%;
+    max-width: 800px;
+    padding: 10px;
+    padding-left: 450px;
+    
+}

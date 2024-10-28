@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registration form</title>
+    </head>
+    <style>
+        #container{
+            width: 450px;
+            height: 650px;
+            margin: auto;
+            text-align: left;
+            padding: 15px;
+            background-color: blueviolet;
+            display: flex;
+            opacity: 0.7;
+            border-radius: 10px;
+            border: 2px solid lime;
+            box-shadow: 10px 5px 5px chartreuse;
+        }
+
+        #ct2{
+            width: 90%;
+            
+        }
+        input{
+            padding: 2px;
+            margin-right: 15px;
+            padding-top: 15px;
+            margin-top: 10px;
+            border: none;
+            
+            
+
+        }
+        #heading{
+            margin-top: 10px;
+            padding-top: 20px;
+            text-align: center;
+        }
+       
+            button{
+                width: 33%;
+                height: 40px;
+                margin-left: 130px;
+                font-weight: 300;
+                padding-top:8px;
+                margin-top: 20px;
+                border-radius: 10px;
+                color: azure;
+                background-color: blueviolet;
+                border-style: groove;
+                border-width: 1px;
+                border-color: chartreuse;
+                cursor: pointer;
+                transition: 0.4s;
+
+            }
+            button:hover{
+                background: red;
+                color: darkred;
+            }
+            body{
+                background-image: url(bg4.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        
+
+    </style>
+    <body>
+        <div id="container">
+        <div id="ct2">
+            <h1 id="heading">Registration Form</h1>
+            <form action="#">
+                <label for="firstname" >First Name :</label>
+                <input type="text" placeholder="enter first ame" maxlength="12" size="30" required><br>
+
+                <label for="lastname">Last Name :</label>
+                <input type="text" placeholder="enter last name" maxlength="12" size="30"><br>
+
+                <label for="email">Email :</label>
+                <input type="email" placeholder="xyz@ai.com" maxlength="" size="35" required><br>
+
+                <label for="dob">Birth Date :</label>
+                <input type="date"><br>
+
+                <label for="birthplace">Birth Place : </label>
+                <input type="text" placeholder="Birth Place" maxlength="12" size="30"><br>
+
+                <label for="mobile">Mobile Number :</label>
+                <input type="text" placeholder="8806148225" maxlength="10" size="25.5" required><br>
+
+                <label>Gender :</label>
+                <input type="radio" name="Gender"><label>Male</label>
+                <input type="radio" name="Gender"><label>Female</label><br>
+
+                <label >Address :</label>
+                <textarea name="" id=""></textarea><br>
+
+                <label>City :</label>
+                <input type="text" size="30"><br>
+
+                <label>Country : </label>
+                <input type="text"><br>
+                
+
+                <label for="hobbies">Hobbies : </label>
+                <input type="checkbox"><label>Drawing</label>
+                <input type="checkbox"><label>Singing</label>
+                <input type="checkbox"><label>Sketching</label><br>
+
+                <button type="submit">Register</button>
+
+            </form>
+
+        </div>
+        </div>
+    </body>
+</html>

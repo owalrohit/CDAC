@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SignUp</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Kablammo&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        <style>
+            *{
+                font-family: "Merriweather", serif;
+            }
+            #container{
+                width: 400px;
+                height: 450px;
+                background: lightcoral;
+                margin: auto;
+                margin-top: 100px;
+                border-radius: 25px ;
+                text-align: center;
+                border: 2px solid blueviolet;
+                box-shadow: 3px violet;
+                
+            }
+            body{
+
+                background: linear-gradient(#22c1c3,#fdbb2d);
+                
+            }
+            #heading{
+                padding-top: 30px;
+            }
+            input{
+                width: 70%;
+                height: 30px;
+                margin-bottom: 20px;
+                padding-top: 5px;
+                padding-left: 8px;
+                border-radius: 8px;
+                border: none;
+            }
+            button{
+                width: 33%;
+                height: 40px;
+                font-weight: 300;
+                padding-top:8px;
+                border-radius: 10px;
+                color: azure;
+                background-color: blueviolet;
+                border-style: groove;
+                border-width: 1px;
+                border-color: lightslategrey;
+                cursor: pointer;
+                transition: 0.4s;
+
+            }
+            button:hover{
+                background: rgb(95,171,216);
+                color: darkred;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <h1 id="heading">Sign Up</h1>
+            <input type="text" placeholder="firstname" >
+            <input type="text" placeholder="lastname">
+            <input type="email" placeholder="email">
+            <input type="password" placeholder="password">
+            <button type="submit">SignUp</button>
+           <p>Don't have an account? <a href="#">Sign up now</a></p>
+
+        </div>
+    </body>
+</html>
