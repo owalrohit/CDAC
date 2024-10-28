@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assingment-3_Q3</title>
+</head>
+<body>
+    <h1>Select course from below list</h1>
+        <label for="courseList">Choose Course : </label>
+        <select id="courseList">
+            <option value="DAC">DAC</option>
+            <option value="DBDA">DBDA</option>
+            <option value="DMC">DMC</option>
+            <option value="DESD">DESD</option>
+            
+        </select>
+        <button onclick="removeItem()"> Remove selected course from list</button>       
+    <script>
+        function removeItem(){
+            const dropDown = document.getElementById("courseList");
+            dropDown.remove(dropDown.selectedIndex);
+        }
+    </script>
+</body>
+</html>

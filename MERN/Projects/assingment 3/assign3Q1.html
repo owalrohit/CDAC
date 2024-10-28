@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assingment-3_Q1</title>
+    <style>
+        div{
+            color: lightgreen;
+            background: #000;
+            width: 70%;
+            margin-left: 220px;
+            padding: 10px;
+            font-size: large;
+        }
+        div button{
+            margin-left: 500px;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <p id="text">
+        dolor sit amet consectetur adipisicing elit. Vero nulla placeat magni commodi distinctio, praesentium veritatis
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos saepe mollitia tempore ullam illum facilis repellat, laboriosam ex id dicta similique? Placeat sunt mollitia facere incidunt dolore recusandae deleniti ut!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt odio cum tempore, dolore nesciunt labore neque deleniti reiciendis dignissimos, voluptatibus, quia aliquid. Facilis neque molestiae, necessitatibus eveniet tenetur officiis voluptatum?
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos recusandae, aliquam veniam nulla itaque hic vel quis, dolorum, optio eveniet iusto? Iusto nemo repellat itaque quas tempora cupiditate, non dignissimos. temporibus ut assumenda porro dignissimos soluta ad recusandae nam exercitationem voluptatum eius voluptatibus odio!
+    </p>
+   
+    <button type="submit" style="text-align: center;" id="sub-button">SUBMIT</button>
+</div>
+<script>
+    const paraText = document.getElementById("text");
+    const submitButton = document.getElementById("sub-button");
+
+    submitButton.addEventListener("click",function(){
+        paraText.style.color = "pink";
+        paraText.style.fontFamily = 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    });
+    
+</script>
+</body>
+</html>
