@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fetchData(url,callback){
+            setTimeout(()=>{
+                callback("fetched data from "+url)
+            },2000);
+        }
+
+        fetchData("https://www.cricbuzz.com",(response)=>console.log(response));    </script>
+</body>
+</html>

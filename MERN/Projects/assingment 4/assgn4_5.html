@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function fetchData(url, callback) {
+        setTimeout(() => {
+            const error = Math.random() > 0.5;
+            if (error) {
+                callback("Error: failed to fetch data");
+            } else {
+                callback(null, "Fetched data from " + url);
+            }
+        }, 2000);
+    }
+    
+    function processData(data, callback) {
+        setTimeout(() => {
+            const processedData = "Processed data: " + data.toUpperCase();
+            callback(processedData);
+        }, 1000);
+    }
+    
+    // Chain fetchData and processData with nested callbacks
+    fetchData("https://www.cricbuzz.com/cricket-match/live-scores", (error, response) => {
+        if (error) {
+            console.log(error);
+        } else {
+            processData(response, (processedData) => {
+                console.log(processedData);
+            });
+        }
+    });
+</script>
+</body>
+</html>
