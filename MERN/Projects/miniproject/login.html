@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <title>Login</title>
+  <link rel="icon" type="image/x-icon" href="images/logo3.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="weddingStyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="contactStyle.css">
+  <link rel="icon" type="image/x-icon" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Kablammo&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playwrite+GB+S:ital,wght@0,100..400;1,100..400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:pink">
+    <img src="images/logo3.png" alt="Victoria Events" style="height: 60px; width: 60px;">
+    <a class="navbar-brand" href="#">Victoria Events</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about_us.html">About Us</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Venues
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="conference.html">Conference Halls</a>
+            <a class="dropdown-item" href="banquet_halls.html">Banquet Rooms</a>
+            <a class="dropdown-item" href="meeting_spaces.html">Meeting
+              Spaces</a>
+            <a class="dropdown-item" href="wedding_halls.html">Wedding Venues</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact_us.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div id="container" style="margin-top: 30px; margin-bottom: 30px;">
+    <h1>Login Page</h1>
+    <form id="loginForm" onsubmit="return handeleLogin(event)">
+      <input type="email" id="email" placeholder="Enter Email" required>
+      <input type="password" id="pass" placeholder="Enter Password" required>
+      <button type="submit">Sign In</button>
+      <a href="https://drive.google.com/drive/folders/1eFXcASTJK8MxPDybZEem8q_UptuCOc-Q">Forgot Password</a>
+      <p>Don't have an account? <a href="signup.html">Sign up now</a></p>
+    </form>
+  </div>
+
+  <footer style="margin-top: 10px;">
+    <div class="row">
+      <div class="col">
+        <h4><i class="fas fa-map-marker-alt" style="color: antiquewhite;"></i>Address</h4>
+        <p>Rohit D. Owal</p>
+        <p>Opp. Wai bus stand,</p>
+        <p>Satara, MH-412803</p>
+        <p>Mob-8806148253</p>
+      </div>
+      <div class="col">
+        <h4>Services</h4>
+        <p>Banquet Rooms</p>
+        <p>Conference Halls</p>
+        <p>Meeting Rooms</p>
+      </div>
+      <div class="col">
+        <h4>Follow Us On</h4>
+        <span><a href="#"><i class="fa-brands fa-instagram"></i></a></span>
+        <span><a href="#"><i class="fa-brands fa-facebook"></i></a></span>
+        <span><a href="https://www.linkedin.com/in/rohitowal/"><i class="fa-brands fa-linkedin"></i></a></span>
+        <span><a href="https://github.com/owalrohit"><i class="fa-brands fa-square-github"></i></a></span>
+      </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <p>Copyrigth & copy 2024 -All Right Reserved</p>
+      </div>
+      <div class="col"></div>
+
+    </div>
+  </footer>
+
+
+  <script>
+    function handeleLogin(event) {
+      event.preventDefault();
+
+      const email = document.getElementById("email").value;
+      const pass = document.getElementById("pass").value;
+
+      const users = JSON.parse(localStorage.getItem("users")) || [];
+      const user = users.find(user => user.email === email && user.pass === pass);
+
+      if (user) {
+        sessionStorage.setItem("isLoggedIn", "true");
+        sessionStorage.setItem("loggedInUser", JSON.stringify(users));
+
+        alert("login Successful !!!");
+        window.location.href = "index.html";
+      } else {
+        alert("Invalid Email or Password. Please try again...");
+      }
+
+
+    }
+  </script>
+
+
+
+
+  <!-- Include Font Awesome for social icons (optional) -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

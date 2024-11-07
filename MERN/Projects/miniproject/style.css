@@ -1,0 +1,44 @@
+.d-block{
+    height: 400px;
+}
+.card{
+    height: 500px;
+    
+    align-items: center;
+}
+
+.fa-brands{
+    font-size: 23px;
+    color:antiquewhite;
+    padding-right: 8px;
+    transition: 0.4ms ease;
+}
+
+
+.fa-brands:hover{
+    font-size: xx-large;
+    color: aqua;
+    cursor: pointer;
+}
+
+*{
+    cursor: context-menu;
+}
+
+.ab{
+    text-align: center;
+    margin: 50px;
+}
+
+.nav-logo:hover{
+    transform: scale(1.5);
+}
+.card-img-top {
+    transition: transform 0.3s ease; 
+    height: 400px;
+}
+
+.card-img-top:hover {
+    transform: scale(1.03); 
+}
+

@@ -1,0 +1,58 @@
+#container {
+    width: 90%;
+    max-width: 400px;
+    background:wheat;
+    margin: auto;
+    border-radius: 25px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#heading {
+    padding-top: 30px;
+}
+
+input {
+    width: 70%;
+    height: 30px;
+    margin-bottom: 20px;
+    padding-top: 5px;
+    padding-left: 8px;
+    border-radius: 8px;
+    border: none;
+}
+
+button {
+    width: 33%;
+    height: 40px;
+    font-weight: 300;
+    padding-top: 8px;
+    border-radius: 10px;
+    color: azure;
+    border-style: groove;
+    border-width: 1px;
+    border-color: lightslategrey;
+    cursor: pointer;
+    
+}
+
+button:hover {
+    background: rgb(95, 171, 216);
+    color: darkred;
+}
+
+p {
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    input {
+        width: 90%;
+    }
+
+    button {
+        width: 80%;
+    }
+}

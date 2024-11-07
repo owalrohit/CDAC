@@ -1,0 +1,29 @@
+.card-img-top{
+    height: 300px;
+}
+.card-text{
+    margin: 5px;
+    margin-top: 2px;
+    text-align: left;
+}
+
+.fas{
+    font-size: 23px;
+    color: maroon;
+    padding-right: 8px;
+    font-size: larger;
+    margin: 5px;
+    margin-top: 1px;
+}
+
+
+.fa-brands{
+    font-size: 23px;
+    color:antiquewhite;
+    padding-right: 8px;
+}
+
+.btn{
+padding: 3px;
+
+}
