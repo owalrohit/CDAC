@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+
+<body>
+    <script>
+        function after3sec() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve("after 3 sec");
+                }, 3000);
+            });
+        }
+
+
+        after3sec().then((message) => {
+            document.write(message);
+        });
+
+    </script>
+</body>
+
+</html>

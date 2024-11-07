@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Budget Tracker</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: lightgrey;
+            color: blue;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        input,
+        button {
+            padding: 10px;
+            margin: 5px;
+            width: 100%;
+            border: 1px solid purple;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            background: lightgreen;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Personal Budget Tracker</h1>
+        <input id="description" type="text" placeholder="Expense Description">
+        <input id="amount" type="number" placeholder="Amount">
+        <button onclick="addExpense()">Add Expense</button>
+
+        <h2>Expenses</h2>
+        <ul id="expenseList" class="expenses"></ul>
+        <div class="total">Total: ₹<span id="totalExpense">0</span></div>
+        <button onclick="filterExpenses()">Show Expenses Above ₹20</button>
+    </div>
+
+    <script>
+        let expenses = [];
+        const total = () => {
+            let totalAmount = 0;
+            return {
+                addAmount(amount) {
+                    totalAmount += amount;
+                    return totalAmount;
+                },
+                getTotal() {
+                    return totalAmount;
+                }
+            };
+        };
+        const totalExpenseTracker = total();
+
+        // initial expenses fetching with a Promise and async/await
+        async function fetchInitialExpenses() {
+            const initialExpenses = await new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve([
+                        { description: 'fruits', amount: 50, date: new Date().toLocaleDateString() },
+                        { description: 'stationary', amount: 15, date: new Date().toLocaleDateString() },
+                    ]);
+                }, 1000);
+            });
+
+            initialExpenses.forEach(expense => addExpense(expense, false));
+        }
+
+        // Add expense
+        const addExpense = ({ description = document.getElementById('description').value, amount = Number(document.getElementById('amount').value), date = new Date().toLocaleDateString() } = {}, displaySuccess = true) => {
+            const newExpense = { description, amount, date };
+            expenses = [...expenses, newExpense];
+            totalExpenseTracker.addAmount(amount);
+
+            displayExpenses();
+
+            if (displaySuccess) {
+                showMessage('Expense added successfully!', () => console.log('Callback after adding expense'));
+            }
+
+            document.getElementById('description').value = '';
+            document.getElementById('amount').value = '';
+        };
+
+        // Display all expenses
+        function displayExpenses() {
+            const expenseList = document.getElementById('expenseList');
+            expenseList.innerHTML = expenses.map(({ description, amount, date }) => `<li>${description}: ₹${amount} (${date})</li>`).join('');
+            document.getElementById('totalExpense').innerText = totalExpenseTracker.getTotal();
+        }
+
+        // Filter expenses above $20
+        function filterExpenses() {
+            const filteredExpenses = expenses.filter(({ amount }) => amount > 20);
+            const expenseList = document.getElementById('expenseList');
+            expenseList.innerHTML = filteredExpenses.map(({ description, amount, date }) => `<li>${description}: ₹${amount} (${date})</li>`).join('');
+        }
+        const calculateTotal = () => expenses.reduce((sum, { amount }) => sum + amount, 0);
+
+        // Show message callback function
+        function showMessage(message, callback) {
+            alert(message);
+            callback();
+        }
+        window.onload = fetchInitialExpenses;
+    </script>
+</body>
+
+
+</html>

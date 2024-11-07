@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function afterDelay(callback){
+            setTimeout(() => {
+                document.write("after 3 sec : callback function : "+callback);
+            }, 3000);
+        }
+
+        afterDelay(30);
+
+
+    </script>
+</body>
+</html>

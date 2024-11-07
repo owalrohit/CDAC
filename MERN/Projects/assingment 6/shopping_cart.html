@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping cart</title>
+</head>
+<body>
+    <script>
+        let totalcost = 0;
+
+        const tax = 0.25;
+
+        function addcost(price){
+            totalcost = totalcost +  price;
+        }
+
+        function calculate_total_cost(){
+            return totalcost * (1+tax);
+        }
+
+        addcost(100);
+        addcost(500);
+
+        document.write("Total cost including tax : "+calculate_total_cost());
+
+
+    </script>
+</body>
+</html>
