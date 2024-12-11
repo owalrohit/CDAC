@@ -1,0 +1,66 @@
+#container {
+    width: 90%;
+    /* Responsive width */
+    max-width: 400px;
+    /* Maximum width */
+    text-align: center;
+    border-radius: 20px;
+    border: 3px solid darkorange;
+    padding: 20px;
+    /* Add padding for better spacing */
+    margin-top: 20px;
+    margin-left: 500px;
+    background:wheat;
+  }
+
+  input,
+  textarea {
+    width: 100%;
+    /* Full width for inputs */
+    padding: 10px;
+    /* Add padding */
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    /* Add a border for inputs */
+  }
+
+  textarea {
+    height: 80px; 
+  }
+
+  button {
+    width: 100%;
+    margin-top: 25px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    background: rgb(97, 7, 223);
+    color: white;
+  }
+
+  button:hover {
+    background: rgb(50, 5, 150);
+    color: whitesmoke;
+    font-size: large;
+  }
+
+  @media (max-width: 600px) {
+    #container {
+      width: 95%;
+    }
+  }
+
+  @media (max-width: 400px) {
+    button {
+      font-size: small;
+
+    }
+  }
+
+body{
+    background-image: url(images/cr2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}

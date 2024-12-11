@@ -1,0 +1,13 @@
+#form-content{
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+#submission-result{
+    margin-left: 500px;
+    margin-right: 500px;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: lightgreen;
+}
