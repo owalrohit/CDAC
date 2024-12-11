@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+  <title>Victoria Events</title>
+  <link rel="icon" type="image/x-icon" href="images/logo3.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="booking.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: palevioletred;">
+    <img src="images/logo3.png" alt="Victoria Events" style="height: 60px; width: 60px; margin-left: 30px;"
+      class="nav-logo">
+    <a class="navbar-brand" href="#">Victoria Events</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about_us.html">About Us</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Venues
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="conference.html">Conference Halls</a>
+            <a class="dropdown-item" href="banquet_halls.html">Banquet Rooms</a>
+            <a class="dropdown-item" href="meeting_spaces.html">Meeting
+              Spaces</a>
+            <a class="dropdown-item" href="wedding_halls.html">Wedding Venues</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contact_us.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.html">Login</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <form id="form-content">
+    <div class="form-group">
+      <label>Enter Full Name</label>
+      <input type="text" class="form-control" id="name1" placeholder="Enter your name" required pattern="[A-Za-z\s]{1,}"
+        title="Please enter a valid name (letters only)">
+
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        placeholder="Enter email" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+
+      <label>Contact number</label>
+      <input type="tel" class="form-control" id="cn" placeholder="Enter contact number" required pattern="\d{10}"
+        title="Please enter a valid 10-digit phone number">
+
+      <label for="calender">Select Date</label>
+      <input type="date" class="form-control" id="dt" required>
+
+      <label for="service">Select Venue:</label>
+      <select class="form-control" id="vn" required>
+        <option value="" disabled selected>Select Venue</option>
+        <option value="Conference-Halls-Indana Palace">Indana Palace</option>
+        <option value="Conference-Halls-Sigma IT Park">Sigma IT Park</option>
+        <option value="Conference-Halls-Lord Hall">Lord Hall</option>
+        <option value="Conference-Halls-Astifa Complex">Astifa Complex</option>
+        <option value="Banquet-Halls Palm Beach Lawns">Palm Beach Lawns</option>
+        <option value="Banquet-Halls Aish Banquet Hall">Aish Banquet Hall</option>
+        <option value="Banquet-Halls Royal Resort">Royal Resort</option>
+        <option value="Banquet-Halls Hotel Gautam">Hotel Gautam</option>
+        <option value="Wedding-Venues Ramai Hotel">Ramai Hotel</option>
+        <option value="Wedding-Venues Prince Hall">Prince Hall</option>
+        <option value="Wedding-Venues Blue Sky">Blue Sky</option>
+        <option value="Wedding-Venues Hotel Heritage">Hotel Heritage</option>
+        <option value="Meeting-Spaces HALAWA Park">HALAWA Park</option>
+        <option value="Meeting-Spaces Godrej Hills">Godrej Hills</option>
+        <option value="Meeting-Spaces Sigma IT Park">Sigma IT Park</option>
+        <option value="Meeting-Spaces Hotel Tiptop">Hotel Tiptop</option>
+      </select>
+
+      <label>Booking Amount</label>
+      <input type="number" class="form-control" id="ba" placeholder="Enter amount in ₹" required min="5000"
+        title="Amount must be greater than 5000">
+    </div>
+
+    <div class="form-group">
+      <label for="exampleInputPassword1">Password</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required
+        minlength="6" title="Password must be at least 6 characters long">
+    </div>
+
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
+      <label class="form-check-label" for="exampleCheck1">All details are correct</label>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+    <button type="button" class="btn btn-success" id="display-booking" style="display: none; margin-left: 15px;">Display Booking</button>
+
+    <button type="button" class="btn btn-danger" id="delete-booking" style="display: none; margin-left: 15px;">Delete
+      Booking</button>
+    <button type="button" class="btn btn-warning" id="update-booking" style="display: none; margin-left: 15px;">Update
+      Booking</button>
+
+  </form>
+
+  <div id="submission-result" class="mt-4" style="display: none;">
+    <h3>Booking Details</h3>
+    <p><strong>Name:</strong> <span id="display-name"></span></p>
+    <p><strong>Email:</strong> <span id="display-email"></span></p>
+    <p><strong>Contact Number:</strong> <span id="display-contact"></span></p>
+    <p><strong>Venue:</strong> <span id="display-venue"></span></p>
+    <p><strong>Date:</strong> <span id="display-date"></span></p>
+    <p><strong>Booking Amount:</strong> <span id="display-amount"></span></p>
+  </div>
+
+
+  <footer style="margin-top: 10px;">
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <h4><i class="fas fa-map-marker-alt" style="color: antiquewhite;"></i>Address</h4>
+        <p>Rohit D. Owal</p>
+        <p>Opp. Wai bus stand,</p>
+        <p>Satara, MH-412803</p>
+        <p>Mob-8806148253</p>
+      </div>
+      <div class="col">
+        <h4>Services</h4>
+        <p>Banquet Rooms</p>
+        <p>Conference Halls</p>
+        <p>Meeting Rooms</p>
+      </div>
+      <div class="col">
+        <h4>Follow Us On</h4>
+        <span><a href="#"><i class="fa-brands fa-instagram"></i></a></span>
+        <span><a href="#"><i class="fa-brands fa-facebook"></i></a></span>
+        <span><a href="https://www.linkedin.com/in/rohitowal/"><i class="fa-brands fa-linkedin"></i></a></span>
+        <span><a href="https://github.com/owalrohit"><i class="fa-brands fa-square-github"></i></a></span>
+      </div>
+      <div class="col"></div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col"></div>
+      <div class="col">
+        <p>Copyrigth & copy 2024 -All Right Reserved</p>
+      </div>
+      <div class="col"></div>
+
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const bookingForm = document.getElementById('form-content');
+      const displayBookingButton = document.getElementById('display-booking');
+      const updateBookingButton = document.getElementById('update-booking');
+      const submissionResult = document.getElementById('submission-result');
+      let lastBookingId = null;
+
+      function handleBooking(event) {
+        event.preventDefault();
+        const name = document.getElementById('name1').value;
+        const email = document.getElementById('exampleInputEmail1').value;
+        const contact_number = document.getElementById('cn').value;
+        const venue = document.getElementById('vn').value;
+        const date = document.getElementById('dt').value;
+        const booking_amount = document.getElementById('ba').value;
+        const password = document.getElementById('exampleInputPassword1').value;
+
+        const bookingData = { name, email, contact_number, venue, date, booking_amount, password };
+        console.log(bookingData);
+
+        fetch('http://127.0.0.1:9600/booking/save', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(bookingData)
+        })
+          .then(response => response.json())
+          .then(data => {
+            if (data.message === 'venue booked successfuly') {
+              alert('Booking Successful!');
+              lastBookingId = data.id;  
+              //console.log(lastBookingId);
+              displayBookingButton.style.display = 'inline-block';
+            } else {
+              alert("booking failed " + data.message);
+            }
+          })
+          .catch(error => alert('Error: ' + error.message));
+      }
+
+      bookingForm.addEventListener('submit', handleBooking);
+//---------------------------------------------------------------------
+      function displayBookingDetails(){
+       if(!lastBookingId){
+        alert('no booking ID found, Please book venue first.')
+        return;
+       }
+       fetch(`http://127.0.0.1:9600/booking/getById/${lastBookingId}`)
+       .then(response => response.json())
+       .then(data => {
+        if(data.message === `something went wrong !!!`){
+          alert(`something went wrong !!!`);
+        }else{
+            document.getElementById('display-name').textContent = data.name;
+            document.getElementById('display-email').textContent = data.email;
+            document.getElementById('display-contact').textContent = data.contact_number;
+            document.getElementById('display-venue').textContent = data.venue;
+            document.getElementById('display-date').textContent = data.date;
+            document.getElementById('display-amount').textContent = data.booking_amount;
+
+            updateBookingButton.style.display = 'inline-block';
+            submissionResult.style.display = 'block';
+          }
+        })
+        .catch(error =>{
+          alert("error in fetching details "+ error.message);
+       });
+
+      }
+      displayBookingButton.addEventListener('click', displayBookingDetails);
+
+//-------------------------------------------------------------------------------------------
+
+      function updateBookingDetails(){
+
+        const name = document.getElementById('name1').value;
+        const email = document.getElementById('exampleInputEmail1').value;
+        const contact_number = document.getElementById('cn').value;
+        const venue = document.getElementById('vn').value;
+        const date = document.getElementById('dt').value;
+        const booking_amount = document.getElementById('ba').value;
+        const password = document.getElementById('exampleInputPassword1').value;
+
+        const bookingData = { name, email, contact_number, venue, date, booking_amount, password };
+        console.log(bookingData);
+
+        fetch(`http://127.0.0.1:9600/booking/updateById/${lastBookingId}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(bookingData)
+        })
+        .then(response => response.json())
+          .then(data => {
+            if (data.message === `updation successful`) {
+              alert('update Successful!');
+            } else {
+              alert("update failed " + data.message);
+            }
+          })
+          .catch(error => alert('Error: ' + error.message));
+
+      }
+      updateBookingButton.addEventListener('click', updateBookingDetails);
+
+    });
+
+
+
+  </script>
+
+
+  <!-- Include Font Awesome for social icons (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
